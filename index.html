@@ -15,7 +15,10 @@
     <header class="scroll-navbar">
         <div class="scroll-navbar-content">
             <img src="image/logo.png" alt="CYBORGS Logo" class="scroll-logo">
-            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            <button class="menu-toggle">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-times"></i>
+        </button>
         </div>
         <nav class="mobile-menu">
             <a href="#about">ABOUT</a>
@@ -431,15 +434,32 @@
             });
         });
 
+        // Update the menu toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile menu toggle
             const menuToggle = document.querySelector('.menu-toggle');
             const mobileMenu = document.querySelector('.mobile-menu');
             
             menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
                 mobileMenu.classList.toggle('show');
             });
 
+            // Remove the scroll event listener for navbar show/hide in mobile
+            if (window.innerWidth <= 768) {
+                window.removeEventListener('scroll', navbarScrollHandler);
+            } else {
+                window.addEventListener('scroll', navbarScrollHandler);
+            }
+            
+            function navbarScrollHandler() {
+                if (window.pageYOffset > 300) {
+                    document.querySelector('.scroll-navbar').classList.add('show');
+                } else {
+                    document.querySelector('.scroll-navbar').classList.remove('show');
+                }
+            }
+            
             // Scroll to top button
             const scrollToTopBtn = document.querySelector('.scroll-to-top');
             

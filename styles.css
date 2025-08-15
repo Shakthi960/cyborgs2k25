@@ -405,7 +405,7 @@ body {
 
 .hologram-container {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 300px;
@@ -458,7 +458,7 @@ body {
 
 /* Events Section */
 .events-section {
-    margin: 8rem 0;
+    margin: 1rem 0;
     position: relative;
 }
 
@@ -1225,8 +1225,54 @@ body {
         overflow-x: hidden;
     }
 
-    .main-container {
-        padding: 1rem;
+    .scroll-navbar {
+        top: 0; /* Always show the navbar in mobile */
+        padding: 0.5rem 1rem;
+    }
+    
+    .scroll-navbar.show {
+        top: 0; /* Remove the show class effect for mobile */
+    }
+    
+    /* Add animation for menu toggle */
+    .menu-toggle {
+        position: relative;
+        width: 30px;
+        height: 30px;
+    }
+    
+    .menu-toggle .fa-bars,
+    .menu-toggle .fa-times {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.3s ease;
+    }
+    
+    .menu-toggle .fa-times {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active .fa-bars {
+        opacity: 0;
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+    
+    .menu-toggle.active .fa-times {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    
+    /* Mobile menu styles */
+    .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    
+    .mobile-menu.show {
+        max-height: 500px; /* Adjust based on your content */
     }
 
     /* Navigation */
@@ -1284,10 +1330,6 @@ body {
     /* Coordinators Section */
     .coordinator-row {
         gap: 1.5rem;
-    }
-
-    .coordinators-section {
-        margin-top: -60px;
     }
 
     .section-title {
