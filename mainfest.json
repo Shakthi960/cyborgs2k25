@@ -1,0 +1,21 @@
+{
+  "name": "CYBORGS 2K25",
+  "short_name": "CYBORGS",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0a0a14",
+  "theme_color": "#00f5ff",
+  "description": "National Level Technical Symposium",
+  "icons": [
+    {
+      "src": "image/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "image/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
