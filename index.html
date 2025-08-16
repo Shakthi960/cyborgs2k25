@@ -28,9 +28,22 @@
         </nav>
     </header>
 
+    <!-- Desktop Menu -->
+        <div class="desktop-menu">
+            <a href="#about">ABOUT</a>
+            <a href="#events">EVENTS</a>
+            <a href="#coordinators">COORDINATORS</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+
     <!-- Scroll to Top Button -->
     <button class="scroll-to-top">
         <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Menu Button (Desktop Only) -->
+    <button class="menu-button desktop-only">
+        <i class="fas fa-bars"></i>
     </button>
 
     <!-- Offline Message -->
@@ -416,7 +429,7 @@
     <div id="particles-js"></div>
 
     <script>
-         // Check network status
+        // Check network status
         window.addEventListener('load', function() {
             if (!navigator.onLine) {
                 document.querySelector('.offline-message').style.display = 'flex';
@@ -436,6 +449,23 @@
 
         // Update the menu toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
+            // Desktop menu toggle
+            const desktopMenuButton = document.querySelector('.menu-button.desktop-only');
+            const desktopMenu = document.querySelector('.desktop-menu');
+            
+            if (desktopMenuButton && desktopMenu) {
+                desktopMenuButton.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent event from bubbling up
+                    desktopMenu.classList.toggle('show');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!desktopMenu.contains(e.target)) {
+                        desktopMenu.classList.remove('show');
+                    }
+                });
+            }
             // Mobile menu toggle - only set up if on mobile
             function setupMobileMenu() {
                 if (window.innerWidth <= 768) {
@@ -480,16 +510,21 @@
                 setupMobileMenu();
             });
             
-            // Scroll to top button
+            // Scroll to top button and menu button
             const scrollToTopBtn = document.querySelector('.scroll-to-top');
+            const menuButton = document.querySelector('.menu-button.desktop-only');
             
             window.addEventListener('scroll', () => {
                 if (window.pageYOffset > 300) {
                     scrollToTopBtn.classList.add('show');
-                    document.querySelector('.scroll-navbar').classList.add('show');
+                    if (window.innerWidth > 768) {
+                        menuButton.classList.add('show');
+                    }
                 } else {
                     scrollToTopBtn.classList.remove('show');
-                    document.querySelector('.scroll-navbar').classList.remove('show');
+                    if (window.innerWidth > 768) {
+                        menuButton.classList.remove('show');
+                    }
                 }
             });
             
@@ -610,6 +645,11 @@
                             top: targetElement.offsetTop - 100,
                             behavior: 'smooth'
                         });
+                        
+                        // Close desktop menu if open
+                        if (desktopMenu) {
+                            desktopMenu.classList.remove('show');
+                        }
                     }
                 });
             });
