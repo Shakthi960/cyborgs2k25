@@ -435,13 +435,23 @@ body {
     border-left: 3px solid #00f5ff;
     padding-left: 1rem;
     position: relative;
-    overflow: visible;
-    white-space: normal;
-    animation: typewriter 4s steps(40) 1s 1 normal both;
+    overflow: hidden;
     text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
+}
+
+/* New typewriter animation for paragraphs */
+.typewriter-text::after {
+    content: "|";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #00f5ff;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .cyber-countdown {
@@ -514,6 +524,7 @@ body {
     width: 300px;
     height: 300px;
     perspective: 1000px;
+    z-index: 1;
 }
 
 .hologram {
@@ -637,22 +648,35 @@ body {
     opacity: 1;
 }
 
+/* Event Logo Styles */
+.event-logo-container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto 1rem;
+    position: relative;
+    z-index: 3;
+}
+
+.event-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 245, 255, 0.1);
+    border-radius: 12px;
+}
+
+.event-card:hover .event-logo {
+    filter: drop-shadow(0 0 15px rgba(0, 245, 255, 0.8));
+    transform: scale(1.05);
+}
+
 .card-content {
     position: relative;
     z-index: 2;
     height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-.event-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #00f5ff, #9d00ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 10px rgba(157, 0, 255, 0.3);
 }
 
 .event-card h3 {
@@ -1402,7 +1426,6 @@ body {
     .typewriter-text {
         font-size: 1rem;
         white-space: normal;
-        animation: none;
     }
 
     .events-section {
