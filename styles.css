@@ -178,13 +178,6 @@ body {
     padding: 2rem;
 }
 
-.offline-message img {
-    width: 200px;
-    height: auto;
-    margin-bottom: 2rem;
-    filter: drop-shadow(0 0 10px #ff0000);
-}
-
 .offline-message h2 {
     color: #ff0000;
     margin-bottom: 1rem;
@@ -196,7 +189,24 @@ body {
     font-family: 'Rajdhani', sans-serif;
     max-width: 500px;
     line-height: 1.6;
+    margin-bottom: 1rem;
 }
+
+/* Dragon Icon */
+.dragon-icon {
+    width: 100px;
+    height: 100px;
+    margin-top: 1rem;
+    background: url('https://i.ibb.co/wRVfM5g/dragon.png') no-repeat center/contain;
+    animation: floatDragon 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes floatDragon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
 
 #particles-js {
     position: fixed;

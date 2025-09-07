@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0a0a14">
+    <link rel="icon" href="image/logo.png">
 </head>
 <body>
     <!-- Mobile Scroll Navbar -->
@@ -48,10 +49,16 @@
 
     <!-- Offline Message -->
     <div class="offline-message">
+
+        <!-- Dragon Icon -->
+        <div class="dragon-icon"></div>
+
         <h2>NO INTERNET CONNECTION</h2>
-        <p>Please check your connection and try again.</p>
+        <p>Please check your connection and try again.<br><br>
+        CYBORGS 2K25 - National-level Technical Symposium<br>
+        SRM Valliammai Engineering College.</p>
     </div>
-    
+
     <div class="main-container">
         <!-- Glitch Header -->
         <header class="glitch-header">
@@ -129,7 +136,7 @@
 •	Hard copies should be handed over to the judges prior to the presentation.<br>
 •	Presentations will be followed by a Q&A session, where judges and the audience can engage with the presenters.
 </p>
-                            <button class="neon-button">REGISTER NOW</button>
+                            <button id="eventone" class="neon-button">REGISTER NOW</button>
                         </div>
                         <div class="card-glow"></div>
                     </div>
@@ -145,7 +152,7 @@
                             <p>•	MCQ ROUND: Questions from programming languages, databases, OS & current tech.<br>
 •	CRYPTOGRAPHY & DSA: Solving encryption problems and coding problems based on DSA.
 </p>
-                            <button class="neon-button">REGISTER NOW</button>
+                            <button id="eventtwo" class="neon-button">REGISTER NOW</button>
                         </div>
                         <div class="card-glow"></div>
                     </div>
@@ -161,7 +168,7 @@
                             <p>•	Participants have to make a web page’s interface for the given problem statement.<br>
 •	Particpants can use internet and create interface using both Front end programming or Figma/Wix
 </p>
-                            <button class="neon-button">REGISTER NOW</button>
+                            <button id="eventthree" class="neon-button">REGISTER NOW</button>
                         </div>
                         <div class="card-glow"></div>
                     </div>
@@ -177,7 +184,7 @@
                             <p>•	Participants will solve logic based puzzels and match each one with correct algorithm for a given set.<br>
 •	Participants will be given an output and they must write a code that produces the same result using any logic or approach.
 </p>
-                            <button class="neon-button">REGISTER NOW</button>
+                            <button id="eventfour" class="neon-button">REGISTER NOW</button>
                         </div>
                         <div class="card-glow"></div>
                     </div>
@@ -194,7 +201,7 @@
 •	Difficulty increases each round.<br>
 •	Fastest solver wins the Battle title. 
 </p>
-                            <button class="neon-button">REGISTER NOW</button>
+                            <button id="eventfive" class="neon-button">REGISTER NOW</button>
                         </div>
                         <div class="card-glow"></div>
                     </div>
@@ -210,7 +217,7 @@
                             <p>•	Round 1 – “Brain Freeze” IceBreaker challenge, True OR False, Picture connection, Riddle (Technical)<br>
 •	Round 2 – “Byte The Ladder”, technical questions based snake & ladder game. Team which answers moves to next round.
 </p>
-                            <button class="neon-button">REGISTER NOW</button>
+                            <button id="eventsix" class="neon-button">REGISTER NOW</button>
                         </div>
                         <div class="card-glow"></div>
                     </div>
@@ -686,6 +693,53 @@
             },
             retina_detect: true
         });
+
+
+        //navigate to event pages
+        const mybutton=document.getElementById('eventone');
+        const myurl='event1.html';
+
+        mybutton.addEventListener('click', function() {
+            window.location.href=myurl;
+        });
+
+        const mybutton2=document.getElementById('eventtwo');
+        const myurl2='event2.html';
+
+        mybutton2.addEventListener('click', function() {
+            window.location.href=myurl2;
+        });
+
+        const mybutton3=document.getElementById('eventthree');
+        const myurl3='event3.html';
+
+        mybutton3.addEventListener('click', function() {
+            window.location.href=myurl3;
+        });
+
+        const mybutton4=document.getElementById('eventfour');
+        const myurl4='event4.html';
+
+        mybutton4.addEventListener('click', function() {
+            window.location.href=myurl4;
+        });
+
+        const mybutton5=document.getElementById('eventfive');
+        const myurl5='event5.html';
+
+        mybutton5.addEventListener('click', function() {
+            window.location.href=myurl5;
+        });
+
+        const mybutton6=document.getElementById('eventsix');
+        const myurl6='event6.html';
+
+        mybutton6.addEventListener('click', function() {
+            window.location.href=myurl6;
+        });
+
+
+
     </script>
 </body>
 </html>
