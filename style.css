@@ -230,6 +230,20 @@ body {
 .college-info {
     margin: 2rem 0;
     text-align: center;
+    padding-top: 20px;
+    border: 1px solid rgba(0, 245, 255, 0.1);
+    border-radius: 12px;
+    background-color: rgba(15, 15, 30, 0.8) ;
+    transition: transform 0.4s ease-in-out;
+}
+
+.college-info:hover {
+    background: linear-gradient(135deg, 
+                rgba(0, 245, 255, 0.1) 0%, 
+                rgba(157, 0, 255, 0.1) 100%);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 245, 255, 0.25);
+    border-color: rgba(0, 245, 255, 0.3);
 }
 
 .college-logos {
