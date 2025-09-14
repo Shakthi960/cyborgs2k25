@@ -138,7 +138,7 @@ body {
     padding: 0.8rem;
     color: #b0b0ff;
     text-decoration: none;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -186,7 +186,7 @@ body {
 
 .offline-message p {
     color: #b0b0ff;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     max-width: 500px;
     line-height: 1.6;
     margin-bottom: 1rem;
@@ -283,7 +283,7 @@ body {
 }
 
 .college-details p {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     color: #b0b0ff;
     margin-bottom: 0.3rem;
     font-size: 0.9rem;
@@ -293,17 +293,17 @@ body {
     margin-top: 1rem;
     font-weight: 700;
     color: #00ff9d !important;
-    font-size: 1.1rem !important;
-    text-shadow: 0 0 8px rgba(0, 255, 157, 0.5);
+    font-size: 1.1rem;
 }
 
 .subtitle-two {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     font-size: 1.5rem;
     letter-spacing: 0.3rem;
     color: #b0b0ff;
     text-transform: uppercase;
     margin-bottom: 2rem;
+    font-weight: 500;
 }
 
 /* Glitch Header */
@@ -353,17 +353,92 @@ body {
     color: #00f5ff;
     letter-spacing: 0.5rem;
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 10px #00f5ff;
-    filter: drop-shadow(2px 2px 0px #ff00ff);
+    text-shadow: 0 0 8px #00f5ff;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.glitch::before {
+    animation: glitch-left 3s infinite;
+    color: #00f5ff;
+    text-shadow: 2px 0 #00f5ff;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.glitch::after {
+    animation: glitch-right 4s infinite;
+    color: #00f5ff;
+    text-shadow: -2px 0 #00f5ff;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch-left {
+    0%, 20%, 24%, 28%, 80%, 84%, 88%, 100% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    22% {
+        transform: translateX(-8px);
+        opacity: 0.7;
+    }
+    26% {
+        transform: translateX(-12px);
+        opacity: 0.5;
+    }
+    82% {
+        transform: translateX(-10px);
+        opacity: 0.6;
+    }
+    86% {
+        transform: translateX(-6px);
+        opacity: 0.8;
+    }
+}
+
+@keyframes glitch-right {
+    0%, 15%, 19%, 23%, 75%, 79%, 83%, 100% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    17% {
+        transform: translateX(10px);
+        opacity: 0.6;
+    }
+    21% {
+        transform: translateX(14px);
+        opacity: 0.4;
+    }
+    77% {
+        transform: translateX(8px);
+        opacity: 0.7;
+    }
+    81% {
+        transform: translateX(12px);
+        opacity: 0.5;
+    }
 }
 
 .subtitle {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     font-size: 1.2rem;
     letter-spacing: 0.3rem;
     color: #b0b0ff;
     text-transform: uppercase;
     margin-bottom: 2rem;
+}
+
+.presents {
+    font-size: 1rem;
+    font-weight: normal;
 }
 
 /* Neon Navigation */
@@ -469,7 +544,7 @@ body {
 .desktop-menu a {
     color: #b0b0ff;
     text-decoration: none;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -499,6 +574,7 @@ body {
 }
 
 .scanline-text {
+    text-align: left;
     font-size: 3rem;
     margin-bottom: 1.5rem;
     position: relative;
@@ -517,7 +593,7 @@ body {
 }
 
 .typewriter-text {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     font-size: 1.2rem;
     line-height: 1.6;
     color: #b0b0ff;
@@ -527,16 +603,6 @@ body {
     position: relative;
     overflow: hidden;
     text-align: justify;
-}
-
-/* New typewriter animation for paragraphs */
-.typewriter-text::after {
-    content: "|";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    color: #00f5ff;
-    animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
@@ -549,7 +615,7 @@ body {
 }
 
 .countdown-title {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     font-size: 1rem;
     letter-spacing: 0.2rem;
     color: #b0b0ff;
@@ -594,7 +660,7 @@ body {
 }
 
 .countdown-label {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     font-size: 0.8rem;
     color: #b0b0ff;
     text-transform: uppercase;
@@ -623,7 +689,6 @@ body {
     background: linear-gradient(135deg, rgba(0, 245, 255, 0.2), rgba(157, 0, 255, 0.2));
     border-radius: 50%;
     position: relative;
-    animation: rotate 20s linear infinite;
     box-shadow: 0 0 50px rgba(0, 245, 255, 0.3);
     display: flex;
     align-items: center;
@@ -639,13 +704,11 @@ body {
     bottom: 10px;
     border: 2px solid rgba(0, 245, 255, 0.5);
     border-radius: 50%;
-    animation: rotate 15s linear infinite reverse;
 }
 
 .hologram-icon {
     font-size: 8rem;
     color: rgba(0, 245, 255, 0.5);
-    animation: pulse 3s ease-in-out infinite;
     display: block;
 }
 
@@ -682,7 +745,6 @@ body {
     position: relative;
     display: inline-block;
     padding-left: 5rem;
-    text-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
 }
 
 .title-number {
@@ -691,9 +753,9 @@ body {
     top: 50%;
     transform: translateY(-50%);
     font-size: 4rem;
-    opacity: 0.15;
+    opacity: 0.1;
     color: #00f5ff;
-    text-shadow: 0 0 20px #00f5ff;
+    width: 1000px;
 }
 
 .event-cards {
@@ -764,7 +826,7 @@ body {
 }
 
 .event-card p {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     color: #c0c0ff;
     margin-bottom: 2rem;
     flex-grow: 1;
@@ -858,10 +920,16 @@ body {
     opacity: 1;
 }
 
+.workshop {
+    font-size: 1rem;
+}
+
 /* Coordinators Section */
 .coordinators-section {
-    margin: 8rem 0;
+    margin: 5rem 0;
     position: relative;
+    padding: 0;
+    width: 100%;
 }
 
 .coordinators-section::before {
@@ -874,41 +942,41 @@ body {
     pointer-events: none;
 }
 
+/* Coordinators Rows Layout */
 .coordinators-rows {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    margin-top: 4rem;
+    gap: 10rem;
+    width: 100%;
+    align-items: center;
 }
 
 .coordinator-row {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10rem;
+    width: 100%;
+    max-width: 1800px;
 }
 
-.president-row {
-    justify-content: center;
-}
-
-.president-card {
-    max-width: 500px;
-    position: relative;
-}
-
+/* Coordinator Cards */
 .coordinator-card {
     background: rgba(10, 10, 20, 0.9);
     border-radius: 12px;
-    padding: 2.5rem;
+    padding: 1.5rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(0, 245, 255, 0.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    min-width: 320px;
-    max-width: 380px;
     text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    margin-left: -2rem;
 }
 
 .coordinator-card::before {
@@ -916,7 +984,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: fit-content;
     height: 100%;
     background: linear-gradient(135deg, 
                 rgba(0, 245, 255, 0.1) 0%, 
@@ -937,16 +1005,17 @@ body {
 }
 
 .coordinator-img {
-    width: 100%;
-    height: 250px;
+    width: 400px;
+    height: 400px;
     margin: 0 auto 1.8rem;
-    border-radius: 8px;
+    border-radius: 12px;
     position: relative;
     overflow: hidden;
     border: 2px solid rgba(0, 245, 255, 0.4);
     box-shadow: 0 0 20px rgba(157, 0, 255, 0.3);
     transition: all 0.4s ease;
     z-index: 2;
+    flex-shrink: 0;
 }
 
 .coordinator-card:hover .coordinator-img {
@@ -960,64 +1029,45 @@ body {
     object-fit: cover;
     filter: grayscale(20%);
     transition: filter 0.4s ease;
-    border-radius: 6px;
 }
 
 .coordinator-card:hover .coordinator-img img {
     filter: grayscale(0%);
 }
 
-.coordinator-icon {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    width: 45px;
-    height: 45px;
-    background: linear-gradient(135deg, #00f5ff, #9d00ff);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    color: #0a0a14;
-    box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
-    transition: all 0.3s ease;
-    z-index: 3;
-}
-
-.coordinator-card:hover .coordinator-icon {
-    transform: scale(1.1);
-}
-
 .coordinator-card h3 {
     color: #00f5ff;
     margin-bottom: 0.7rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
     position: relative;
     z-index: 2;
+    width: 100%;
 }
 
 .coordinator-card p {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     color: #c0c0ff;
-    margin-bottom: 1.8rem;
+    margin-bottom: 1rem;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.6rem;
     position: relative;
     z-index: 2;
+    width: 100%;
 }
 
 .coordinator-contact {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1rem;
+    font-family: 'Noto Sans Multani', sans-serif;
+    font-size: 1.4rem;
     color: #b0b0ff;
     margin-bottom: 1.5rem;
     position: relative;
     z-index: 2;
+    width: 100%;
+    margin-top: auto;
 }
 
 .coordinator-contact span {
@@ -1025,28 +1075,8 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.8rem;
-}
-
-.coordinator-card .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    position: relative;
-    z-index: 2;
-}
-
-.coordinator-card .social-links a {
-    color: #b0b0ff;
-    font-size: 1.3rem;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 10px rgba(157, 0, 255, 0.3);
-}
-
-.coordinator-card .social-links a:hover {
-    color: #00f5ff;
-    transform: translateY(-5px) scale(1.2);
-    text-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+    flex-wrap: wrap;
+    font-weight: 400;
 }
 
 .coordinator-glow {
@@ -1067,25 +1097,6 @@ body {
 
 .coordinator-card:hover .coordinator-glow {
     opacity: 0.8;
-}
-
-.president-card .coordinator-card {
-    border: 1px solid rgba(0, 245, 255, 0.2);
-    box-shadow: 0 0 30px rgba(0, 245, 255, 0.2);
-}
-
-.president-card .coordinator-card:hover {
-    box-shadow: 0 0 50px rgba(0, 245, 255, 0.4);
-}
-
-.president-card .coordinator-img {
-    border: 3px solid rgba(0, 245, 255, 0.6);
-    box-shadow: 0 0 30px rgba(0, 245, 255, 0.4);
-}
-
-.president-card .coordinator-icon {
-    background: linear-gradient(135deg, #00f5ff, #00ff9d);
-    box-shadow: 0 0 20px rgba(0, 245, 255, 0.7);
 }
 
 /* Contact Section */
@@ -1177,10 +1188,15 @@ body {
 }
 
 .contact-card p {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     color: #c0c0ff;
-    margin-bottom: 0.6rem;
-    line-height: 1.5;
+    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+
+#instagram {
+    margin-top: 20px;
 }
 
 .social-links {
@@ -1226,6 +1242,7 @@ body {
 /* Brand */
 .footer-brand {
     text-align: center;
+    margin-left: -80px;
 }
 
 .footer-brand img {
@@ -1240,13 +1257,13 @@ body {
 .footer-brand h3 {
     color: #00f5ff;
     margin-bottom: 0.8rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-shadow: 0 0 8px rgba(0, 245, 255, 0.4);
     letter-spacing: 1px;
 }
 
 .footer-brand p {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     color: #b0b0ff;
     font-size: 0.95rem;
     line-height: 1.6;
@@ -1308,9 +1325,9 @@ body {
 .footer-links a {
     color: #b0b0ff;
     text-decoration: none;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.2rem;
     transition: all 0.3s ease;
 }
 
@@ -1321,14 +1338,13 @@ body {
 
 /* Contact */
 .footer-contact p {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     color: #b0b0ff;
     margin-bottom: 1.2rem;
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 1.2rem;
 }
 
 /* Animations */
@@ -1391,7 +1407,6 @@ body {
         display: none; /* Initially hidden, will be toggled by button */
     }
 }
-
 /* ============================= */
 /* CYBORG 2K25 TABLET VIEW (max-width: 768px) */
 /* ============================= */
@@ -1483,15 +1498,15 @@ body {
     }
     
     .college-details h2 {
-        font-size: 1.4rem;
+        font-size: 0.9rem !important;
     }
     
     .college-details p {
-        font-size: 0.8rem;
+        font-size: 0.6rem !important;
     }
     
     .department-name {
-        font-size: 1rem !important;
+        font-size: 2rem !important;
     }
 
     /* Navigation */
@@ -1534,6 +1549,7 @@ body {
     .typewriter-text {
         font-size: 1rem;
         white-space: normal;
+        margin-right: 50px;
     }
 
     .events-section {
@@ -1544,28 +1560,94 @@ body {
         margin-top: 0px;
     }
 
+    .countdown-display {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .countdown-segment {
+        min-width: 70px;
+        padding: 0.8rem 0.5rem;
+    }
+    
+    .countdown-number {
+        font-size: 1.8rem !important;
+        font-weight: 700;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+    .countdown-label {
+        font-size: 0.7rem !important;
+        letter-spacing: 0.05rem;
+        font-family: 'Noto Sans Multani', sans-serif;
+    }
+
     /* Events Section */
     .event-cards {
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
     }
-
-    /* Coordinators Section */
-    .coordinator-row {
-        gap: 1.5rem;
+    
+    .coordinators-section {
+        margin: 1rem 0;
+        padding: 0 1rem;
+        width: 100%;
     }
-
+    
     .section-title {
-        font-size: 30px;
+        font-size: 2rem;
+        padding-left: 4rem;
+        margin-bottom: 3rem;
     }
-
+    
+    .title-number {
+        font-size: 3rem;
+        width: 100%;
+    }
+    
+    .coordinators-rows {
+        gap: 2rem;
+        width: 100%;
+    }
+    
+    .coordinator-row {
+        grid-template-columns: 1fr !important; /* Single column on tablet */
+        gap: 2rem !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+    
     .coordinator-card {
-        min-width: 280px;
+        width: calc(100% - 20px) !important; /* 10px gap on each side */
+        margin: 0 10px !important; /* Add the 10px gap */
+        padding: 1rem;
+        box-sizing: border-box;
     }
-
-    .coordinator-card .president-card {
-        margin-top: -50px;
+    
+    .coordinator-img {
+        max-width: 280px !important; /* Slightly smaller on tablet */
+        margin: 0 auto 1rem !important;
     }
+    
+    .coordinator-img img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 300px;
+        object-fit: cover;
+    }
+    
+    .coordinator-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .coordinator-card p {
+        font-size: 1rem;
+    }
+    
+    .coordinator-contact {
+        font-size: 0.9rem;
+    }
+    
 
     /* Contact Section */
     .contact-container {
@@ -1601,8 +1683,21 @@ body {
 
     
     .footer-brand {
-        align-items: flex-start; /* Changed from center to flex-start */
-        text-align: left; /* Changed from center to left */
+        align-items: center; /* Changed from center to flex-start */
+        text-align: center; /* Changed from center to left */
+        margin-left: 0px;
+    }
+
+    .footer-brand h3 {
+        font-size: 1.5rem;
+    }
+
+    .footer-links ul li a {
+        font-size: 1rem;
+    }
+
+    .footer-contact p {
+        font-size: 1rem;
     }
 
     .footer-links {
@@ -1672,7 +1767,7 @@ body {
     }
     
     .department-name {
-        font-size: 0.9rem !important;
+        font-size: 1rem;
     }
 
     /* Navigation */
@@ -1695,6 +1790,14 @@ body {
     .subtitle {
         font-size: 1rem;
         letter-spacing: 0.1rem;
+    }
+
+    .presents {
+        font-size: 0.7rem;
+    }
+
+    .subtitle-two {
+        font-size: 1rem;
     }
 
     /* Hero Section */
@@ -1722,7 +1825,7 @@ body {
     }
 
     .typewriter-text {
-        font-size: 0.95rem;
+        font-size: 1.2rem;
         animation: none;
         white-space: normal;
     }
@@ -1754,16 +1857,61 @@ body {
         font-size: 1.3rem;
     }
 
-    /* Coordinators Section */
-    .coordinator-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+    .coordinators-section {
+        margin: 3rem 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        padding-left: 3rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .title-number {
+        font-size: 2.5rem;
+    }
+    
+    .coordinator-img {
+        max-width: 220px;
+        height: 220px;
     }
 
+    .coordinator-img {
+        max-width: 250px !important; /* Smaller on mobile */
+        max-height: 250px !important;
+    }
+    
+    .coordinator-img img {
+        max-height: 250px !important;
+    }
+    
     .coordinator-card {
-        width: 100%;
-        max-width: 300px;
+        padding: 0.8rem;
+    }
+    
+    .coordinator-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .coordinator-card p {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .coordinator-contact {
+        font-size: 0.9rem;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .coordinator-contact span {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+    
+    .president-card .coordinator-img {
+        width: 200px;
+        height: 200px;
     }
 
     /* Contact Section */
