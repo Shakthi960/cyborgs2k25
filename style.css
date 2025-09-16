@@ -60,7 +60,7 @@ body {
     top: -80px;
     left: 0;
     width: 100%;
-    background: rgba(10,10,20,0.95);
+    background: rgba(10, 10, 20, 0.303);
     padding: 0.5rem 1rem;
     display: flex;
     flex-direction: column;
@@ -1070,6 +1070,10 @@ body {
     margin-top: auto;
 }
 
+.coordinator-contact a {
+    color: #b0b0ff;
+}
+
 .coordinator-contact span {
     display: flex;
     align-items: center;
@@ -1139,6 +1143,10 @@ body {
     overflow: hidden;
     border: 1px solid rgba(0, 245, 255, 0.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-card a {
+    color: #b0b0ff;
 }
 
 .map-container {
@@ -1345,6 +1353,10 @@ body {
     align-items: center;
     gap: 0.8rem;
     font-size: 1.2rem;
+}
+
+.footer-contact a {
+    color: #b0b0ff;
 }
 
 /* Animations */
