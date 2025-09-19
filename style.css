@@ -13,6 +13,75 @@ body {
     position: relative;
 }
 
+/* Splash Screen */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0a14;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.8s ease-out, visibility 0.8s;
+}
+
+.splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.splash-logo {
+    width: 150px;
+    height: 150px;
+    filter: drop-shadow(0 0 15px #00f5ff);
+    transform: scale(1); /* ✅ start state */
+    opacity: 1;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.splash-screen.hidden .splash-logo {
+    transform: scale(5.0); /* ✅ zoom out */
+    opacity: 0;
+}
+
+/* Mobile view - pulse animation */
+@media (max-width: 768px) {
+    .splash-logo {
+        animation: pulse 1.5s infinite;
+    }
+    
+    .splash-screen.hidden .splash-logo {
+        transform: scale(1.5);
+    }
+    
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+}
+
+
+/* Mobile view - keep the pulse animation */
+@media (max-width: 768px) {
+    .splash-logo {
+        animation: pulse 1.5s infinite;
+    }
+    
+    .splash-screen.hidden .splash-logo {
+        transform: scale(1.5); /* Original mobile zoom */
+    }
+    
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+}
+
 /* Scroll to Top Button */
 .scroll-to-top {
     position: fixed;
@@ -313,6 +382,37 @@ body {
     position: relative;
 }
 
+.common-register-container {
+    display: flex;
+    justify-content: end;
+    position: absolute;
+}
+
+.common-registernow {
+    margin-top: 60px;
+}
+
+.common-registernow a {
+    color: #00f5ff;
+    text-decoration: none;
+    padding: 18px 36px;
+    margin: 40px 40px 40px 40px;
+    border: 1px solid #00f5ff;
+    border-radius: 50px;
+    background-color: #00f7ff37;
+    transition: transform 0.3s ease-in-out;
+}
+
+.common-registernow a:hover {
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 12px #00f5ff;
+}
+
+.common-registernow-mobile  {
+    display: none;
+}
+
 .logo-container {
     position: relative;
     width: 120px;
@@ -434,6 +534,12 @@ body {
     color: #b0b0ff;
     text-transform: uppercase;
     margin-bottom: 2rem;
+}
+
+.glitch-header h2 {
+    font-size: 2.5rem;
+    color: #00f5ff;
+    letter-spacing: 1px;
 }
 
 .presents {
@@ -967,8 +1073,6 @@ body {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(0, 245, 255, 0.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
     height: 100%;
     display: flex;
@@ -996,8 +1100,6 @@ body {
 
 .coordinator-card:hover {
     transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 35px rgba(157, 0, 255, 0.25);
-    border-color: rgba(157, 0, 255, 0.3);
 }
 
 .coordinator-card:hover::before {
@@ -1012,15 +1114,9 @@ body {
     position: relative;
     overflow: hidden;
     border: 2px solid rgba(0, 245, 255, 0.4);
-    box-shadow: 0 0 20px rgba(157, 0, 255, 0.3);
     transition: all 0.4s ease;
     z-index: 2;
     flex-shrink: 0;
-}
-
-.coordinator-card:hover .coordinator-img {
-    border-color: rgba(157, 0, 255, 0.6);
-    box-shadow: 0 0 30px rgba(0, 245, 255, 0.4);
 }
 
 .coordinator-img img {
@@ -1439,6 +1535,28 @@ body {
     .scroll-navbar.show {
         top: 0;
     }
+
+    .common-register-container-mobile {
+        display: flex;
+        justify-content: center;
+    }
+
+    .common-registernow-mobile {
+        display: contents;
+
+    }
+
+    .common-registernow-mobile a{
+        text-align: center;
+        position: relative;
+        color: #00f5ff;
+        text-decoration: none;
+        margin: 0px 0px 20px 0px;
+        border-right: 1px solid #00f5ff;
+        border-bottom: 1px solid #00f5ff;
+        border-radius: 25px;
+        padding: 12px 22px;
+    }
     
     .menu-toggle {
         display: block;
@@ -1537,11 +1655,25 @@ body {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
-        margin-top: -10px;
+        margin-top: 30px;
     }
 
     .glitch {
         font-size: 2.5rem;
+    }
+
+    .holographic-logo {
+        width: 90px;
+        margin-bottom: -20px;
+    }
+
+    .glitch-header h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .common-register-container {
+        display: none;
     }
 
     .hero-image {
@@ -1569,7 +1701,7 @@ body {
     }
 
     .cyber-countdown {
-        margin-top: 0px;
+        margin-top: 20px;
     }
 
     .countdown-display {
@@ -1630,6 +1762,7 @@ body {
     }
     
     .coordinator-card {
+        border: none;
         width: calc(100% - 20px) !important; /* 10px gap on each side */
         margin: 0 10px !important; /* Add the 10px gap */
         padding: 1rem;
