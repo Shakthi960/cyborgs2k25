@@ -229,10 +229,6 @@ body {
     transition: color 0.3s ease;
 }
 
-.rules-content li:hover {
-    color: #ffffff;
-}
-
 .rules-content li:before {
     content: '';
     position: absolute;

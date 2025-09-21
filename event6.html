@@ -9,10 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0a0a14">
+    <link rel="icon" href="image/logo.png">
 </head>
 <body>
-    <!-- Circle Animation Background -->
-    <div id="circle-background"></div>
+    <!-- Background Container -->
+    <div id="circle-background" class="container"></div>
     
     <!-- Header with Back Button -->
     <header class="event-header">
@@ -44,15 +45,49 @@
                 <h2><i class="fas fa-scroll"></i> EVENT RULES</h2>
                 <div class="rules-content">
                     <ol>
-                        <li>Papers should focus on topics related to computer science.</li>
-                        <li>Teams must submit soft copies of their papers ahead of the event for review.</li>
-                        <li>Hard copies should be handed over to the judges prior to the presentation.</li>
-                        <li>Presentations will be followed by a Q&A session with judges and audience.</li>
-                        <li>Each team can have a maximum of 3 participants.</li>
-                        <li>Presentation time limit is 10 minutes followed by 5 minutes for Q&A.</li>
-                        <li>Plagiarism will lead to immediate disqualification.</li>
-                        <li>Decision of the judges will be final and binding.</li>
-                    </ol>
+                        <li><b>Total Rounds:</b> 2</li>
+                        <li><b>Total Duration:</b> Approximately 1 hour 45 minutes</li>
+                        
+                        <li><b>Round 1: BrainFreeze!</b>  
+                            <ol>
+                            <li><b>Theme:</b> "Team up, think fast, and qualify!"</li>
+                            <li><b>Duration:</b> 60 minutes</li>
+                            <li><b>Flow:</b>
+                                <ol>
+                                <li><b>Team Selection:</b> Teams are randomly assigned with unique names.</li>
+                                <li><b>Quick Topic Game (Icebreaker):</b> Teams list items on a random topic (e.g., "Things we bring to college") within 30 seconds to earn points and set answering priority.</li>
+                                <li><b>Technical Question Rounds:</b>
+                                    <ol>
+                                    <li>True/False: 2 questions × 2 marks = 4 marks</li>
+                                    <li>Picture Connection: 2 questions × 3 marks = 6 marks</li>
+                                    <li>Pseudocode: 1 question × 5 marks = 5 marks</li>
+                                    <li><b>Grand Total:</b> 15 marks</li>
+                                    </ol>
+                                </li>
+                                <li><b>Evaluation:</b> Top 6–8 teams qualify for Round 2.</li>
+                                </ol>
+                            </li>
+                            </ol>
+                        </li>
+                        
+                        <li><b>Round 2: Byte the Ladder — Race to 50</b>
+                            <ol>
+                            <li><b>Theme:</b> "Snake & Ladder meets Brain & Logic!"</li>
+                            <li><b>Duration:</b> 40–45 minutes</li>
+                            <li><b>Game Concept:</b> A classic Snake & Ladder game where technical questions replace the dice.</li>
+                            <li><b>How It Works:</b>
+                                <ol>
+                                <li><b>Risk Choice:</b> Teams can choose Easy (1–3 steps) or Hard (4–6 steps) questions.</li>
+                                <li><b>Answer Time:</b> 30 seconds per question.</li>
+                                <li><b>Outcome:</b> Correct → Move forward; Wrong → Stay in place.</li>
+                                <li><b>Board Dynamics:</b> Landing on a Ladder allows climbing up, while landing on a Snake results in sliding down.</li>
+                                <li><b>Win Condition:</b> The first team to reach Square 50 wins.</li>
+                                </ol>
+                            </li>
+                            </ol>
+                        </li>
+                        </ol>
+
                 </div>
                 <button class="register-btn">REGISTER NOW</button>
             </div>
@@ -64,62 +99,24 @@
             <div class="coordinators-grid">
                 <div class="event-coordinator">
                     <div class="coordinator-img">
-                        <img src="https://via.placeholder.com/150/0a0a14/00f5ff?text=COORDINATOR" alt="Coordinator">
+                        <img src="image/harimythreyan.jpg" alt="Coordinator">
                     </div>
-                    <h3>ARJUN KUMAR</h3>
-                    <p>+91 98765 43210</p>
-                    
+                    <h3>HARIMYTHREYAN D <span class="head">(head)</span> </h3>
+                    <p>+91 6380085531</p>
                 </div>
 
                 <div class="event-coordinator">
                     <div class="coordinator-img">
-                        <img src="https://via.placeholder.com/150/0a0a14/00f5ff?text=COORDINATOR" alt="Coordinator">
+                        <img src="image/iswarya.jpg" alt="Coordinator">
                     </div>
-                    <h3>PRIYA SHARMA</h3>
-                    <p>+91 87654 32109</p>
-                    
-                </div>
-
-                <div class="event-coordinator">
-                    <div class="coordinator-img">
-                        <img src="https://via.placeholder.com/150/0a0a14/00f5ff?text=COORDINATOR" alt="Coordinator">
-                    </div>
-                    <h3>RAHUL VERMA</h3>
-                    
-                    
-                </div>
-
-                <div class="event-coordinator">
-                    <div class="coordinator-img">
-                        <img src="https://via.placeholder.com/150/0a0a14/00f5ff?text=COORDINATOR" alt="Coordinator">
-                    </div>
-                    <h3>ANITA SINGH</h3>
-                    
-                    
-                </div>
-
-                <div class="event-coordinator">
-                    <div class="coordinator-img">
-                        <img src="https://via.placeholder.com/150/0a0a14/00f5ff?text=COORDINATOR" alt="Coordinator">
-                    </div>
-                    <h3>VIJAY MEHTA</h3>
-                    
-                    
-                </div>
-
-                <div class="event-coordinator">
-                    <div class="coordinator-img">
-                        <img src="https://via.placeholder.com/150/0a0a14/00f5ff?text=COORDINATOR" alt="Coordinator">
-                    </div>
-                    <h3>MEERA JOSHI</h3>
-                    
+                    <h3>AISHWARYA P S</h3>
                 </div>
             </div>
         </section>
 
         <!-- Bottom Back Button -->
         <div class="bottom-back-button">
-            <a href="index.html" class="back-button2">
+            <a href="index.html#events" class="back-button2">
                 <i class="fas fa-arrow-left"></i> Back to Home
             </a>
         </div>
@@ -127,71 +124,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const container = document.getElementById('circle-background');
-            const colors = ['#00f5ff', '#9d00ff', '#00ff9d', '#ff00ff'];
-            const CIRCLE_COUNT = 15;
-            const circles = [];
-            const MIN_DISTANCE = 50;
-
-            function randomPosition(size) {
-                return {
-                    x: Math.random() * (window.innerWidth - size),
-                    y: Math.random() * (window.innerHeight - size)
-                };
-            }
-
-            function isFarEnough(newPos, size) {
-                return circles.every(c => {
-                    const dx = (c.x + c.size/2) - (newPos.x + size/2);
-                    const dy = (c.y + c.size/2) - (newPos.y + size/2);
-                    const dist = Math.sqrt(dx*dx + dy*dy);
-                    return dist > (MIN_DISTANCE + size/2 + c.size/2);
-                });
-            }
-
-            function moveCircle(circleObj) {
-                const size = 15 + Math.random() * 30;
-                let pos;
-                let attempts = 0;
-                do {
-                    pos = randomPosition(size);
-                    attempts++;
-                } while (!isFarEnough(pos, size) && attempts < 30);
-
-                circleObj.el.style.width = circleObj.el.style.height = `${size}px`;
-                circleObj.el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                
-                circleObj.el.style.left = `${pos.x}px`;
-                circleObj.el.style.top = `${pos.y}px`;
-
-                setTimeout(() => {
-                    circleObj.el.style.opacity = 0.7;
-                }, 100);
-                
-                setTimeout(() => {
-                    circleObj.el.style.opacity = 0;
-                }, 5000);
-
-                circleObj.x = pos.x;
-                circleObj.y = pos.y;
-                circleObj.size = size;
-            }
-
-            // Create circles
-            for (let i = 0; i < CIRCLE_COUNT; i++) {
-                const circle = document.createElement('div');
-                circle.className = 'holo-circle';
-                container.appendChild(circle);
-
-                const circleObj = { el: circle, x: 0, y: 0, size: 0 };
-                circles.push(circleObj);
-
-                setTimeout(() => {
-                    moveCircle(circleObj);
-                    setInterval(() => moveCircle(circleObj), 8000);
-                }, i * 800);
-            }
-
             // Register button interaction
             document.querySelector('.register-btn').addEventListener('click', function() {
                 this.innerHTML = '<i class="fas fa-cog fa-spin"></i> PROCESSING...';
@@ -201,13 +133,50 @@
                 }, 1500);
             });
 
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                circles.forEach(circleObj => {
-                    if (circleObj.el.style.opacity !== '0') {
-                        moveCircle(circleObj);
+            const container = document.getElementById('circle-background');
+
+            function createCircle() {
+            const circle = document.createElement('span');
+            circle.classList.add('circle');
+
+            const size = Math.random() * 60 + 20 + 'px';
+            circle.style.width = size;
+            circle.style.height = size;
+
+            circle.style.top = Math.random() * window.innerHeight + 'px';
+            circle.style.left = Math.random() * window.innerWidth + 'px';
+
+            container.appendChild(circle);
+
+            setTimeout(() => {
+                circle.remove();
+            }, 4000);
+            }
+
+            setInterval(createCircle, 300);
+
+            // Add scroll animation to elements
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
                     }
                 });
+            }, observerOptions);
+
+            // Observe elements for animation
+            const animatedElements = document.querySelectorAll('.poster, .rules-container, .event-coordinator');
+            animatedElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(el);
             });
         });
     </script>
