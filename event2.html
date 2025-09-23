@@ -17,7 +17,7 @@
     
     <!-- Header with Back Button -->
     <header class="event-header">
-        <a href="index.html" class="back-button">
+        <a href="index.html#events" class="back-button">
             <i class="fas fa-arrow-left"></i>
         </a>
         <div class="nav-bg">
@@ -88,7 +88,7 @@
                         </ol>
 
                 </div>
-                <button class="register-btn">REGISTER NOW</button>
+                <button class="register-btn" id="googleform">REGISTER NOW</button>
             </div>
         </section>
 
@@ -98,7 +98,7 @@
             <div class="coordinators-grid">
                 <div class="event-coordinator">
                     <div class="coordinator-img">
-                        <img src="image/geeth.jpg" alt="Coordinator">
+                        <img src="image/ragunath.jpeg" alt="Coordinator">
                     </div>
                     <h3>RAGUNATH R <span class="head">(head)</span> </h3>
                     <p>+91 96297 28831</p>
@@ -106,9 +106,9 @@
 
                 <div class="event-coordinator">
                     <div class="coordinator-img">
-                        <img src="image/char.jpg" alt="Coordinator">
+                        <img src="image/ramya.jpeg" alt="Coordinator">
                     </div>
-                    <h3>NAUSHEEN BEGUM S </h3>
+                    <h3>RAMYA V S</h3>
                 </div>
             </div>
         </section>
@@ -177,6 +177,10 @@
                 el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 observer.observe(el);
             });
+        });
+
+        document.getElementById('googleform').addEventListener('click', function() {
+            window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScqzcr-lbdcgh8M3PdohRJmhfGrnOeIX1xafaYM5wHiYI5AnA/viewform';
         });
     </script>
 </body>

@@ -141,18 +141,13 @@ body {
 .poster {
     position: relative;
     width: 100%;
-    max-width: 300px;
+    max-width: 310px;
     height: 450px;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
     border: 2px solid rgba(0, 245, 255, 0.5);
     transform-style: preserve-3d;
     transition: transform 0.5s ease;
-}
-
-.poster:hover {
-    transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
 }
 
 .poster img {
@@ -160,10 +155,6 @@ body {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
-}
-
-.poster:hover img {
-    transform: scale(1.05);
 }
 
 .poster-glow {
@@ -227,10 +218,6 @@ body {
     position: relative;
     list-style: none;
     transition: color 0.3s ease;
-}
-
-.rules-content li:hover {
-    color: #ffffff;
 }
 
 .rules-content li:before {

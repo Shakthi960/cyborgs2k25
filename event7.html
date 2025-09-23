@@ -17,7 +17,7 @@
     
     <!-- Header with Back Button -->
     <header class="event-header">
-        <a href="index.html" class="back-button">
+        <a href="index.html#events3" class="back-button">
             <i class="fas fa-arrow-left"></i>
         </a>
         <div class="nav-bg">
@@ -46,7 +46,7 @@
                 <div class="rules-content">
                     <p>Pystack Workshop is a hands-on learning program designed to help students kickstart their journey in software development. The workshop begins with a strong foundation in Python programming, covering core concepts, problem-solving, and practical coding. Once the basics are mastered, participants move on to Full Stack Development, where they learn to build complete web applications with frontend, backend, and database integration.The goal of Pystack is to equip students with the skills required to design, develop, and deploy real-world applications, preparing them for internships, projects, and career opportunities in tech.</p>
                 </div>
-                <button class="register-btn">REGISTER NOW</button>
+                <button class="register-btn" id="googleform">REGISTER NOW</button>
             </div>
         </section>
 
@@ -68,7 +68,7 @@
 
         <!-- Bottom Back Button -->
         <div class="bottom-back-button">
-            <a href="index.html#events" class="back-button2">
+            <a href="index.html#events3" class="back-button2">
                 <i class="fas fa-arrow-left"></i> Back to Home
             </a>
         </div>
@@ -131,6 +131,10 @@
                 observer.observe(el);
             });
         });
+
+        document.getElementById('googleform').addEventListener('click', function() {
+            window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScqzcr-lbdcgh8M3PdohRJmhfGrnOeIX1xafaYM5wHiYI5AnA/viewform';
+        });
     </script>
-</body
+</body>
 </html>

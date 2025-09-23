@@ -17,7 +17,7 @@
     
     <!-- Header with Back Button -->
     <header class="event-header">
-        <a href="index.html" class="back-button">
+        <a href="index.html#events" class="back-button">
             <i class="fas fa-arrow-left"></i>
         </a>
         <div class="nav-bg">
@@ -55,7 +55,7 @@
                         <li>Final Decision: Judges' decision will be final and binding.</li>
                     </ol>
                 </div>
-                <button class="register-btn">REGISTER NOW</button>
+                <button class="register-btn" id="googleform">REGISTER NOW</button>
             </div>
         </section>
 
@@ -146,6 +146,10 @@
                 el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 observer.observe(el);
             });
+        });
+
+        document.getElementById('googleform').addEventListener('click', function() {
+            window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSf08ifqvhyJ2F94OtatFvO4UqXneMriVox9lYdGB89N43IXXQ/viewform';
         });
     </script>
 </body>

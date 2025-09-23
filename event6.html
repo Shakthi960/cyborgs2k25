@@ -17,7 +17,7 @@
     
     <!-- Header with Back Button -->
     <header class="event-header">
-        <a href="index.html" class="back-button">
+        <a href="index.html#events2" class="back-button">
             <i class="fas fa-arrow-left"></i>
         </a>
         <div class="nav-bg">
@@ -89,7 +89,7 @@
                         </ol>
 
                 </div>
-                <button class="register-btn">REGISTER NOW</button>
+                <button class="register-btn" id="googleform">REGISTER NOW</button>
             </div>
         </section>
 
@@ -116,7 +116,7 @@
 
         <!-- Bottom Back Button -->
         <div class="bottom-back-button">
-            <a href="index.html#events" class="back-button2">
+            <a href="index.html#events2" class="back-button2">
                 <i class="fas fa-arrow-left"></i> Back to Home
             </a>
         </div>
@@ -178,6 +178,10 @@
                 el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 observer.observe(el);
             });
+        });
+
+        document.getElementById('googleform').addEventListener('click', function() {
+            window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScqzcr-lbdcgh8M3PdohRJmhfGrnOeIX1xafaYM5wHiYI5AnA/viewform';
         });
     </script>
 </body>
