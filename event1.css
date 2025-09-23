@@ -32,9 +32,8 @@ body {
 .circle {
   position: absolute;
   border-radius: 50%;
-  background: #48e1e62e;
-  border: 1px solid #00f7ff62;
-  box-shadow: 0px 0px 10px #00f7ff32;
+  background: #48e1e60e;
+  box-shadow: 0px 0px 50px #48e1e631;
   animation: float 4s linear infinite;
 }
 
@@ -472,7 +471,7 @@ body {
     }
     
     .nav-bg {
-        flex-direction: column;
+        flex-direction: row;
         gap: 1rem;
         text-align: center;
     }
