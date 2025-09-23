@@ -219,7 +219,7 @@ body {
 
 .rules-content p {
     margin-bottom: 1rem;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     color: #c0c0ff;
     line-height: 1.6;
     padding-left: 0.5rem;
@@ -388,14 +388,14 @@ body {
 
 .event-coordinator p {
     color: #b0b0ff;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     margin-bottom: 1.2rem;
     font-size: 1.1rem;
 }
 
 .head {
     color: #b0b0ff;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Noto Sans Multani', sans-serif;
     font-size: 1.1rem;
     font-weight: 400;
 }

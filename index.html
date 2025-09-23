@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Multani&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Noto+Sans+Multani&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -465,300 +468,345 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-        const splashScreen = document.querySelector('.splash-screen');
-        const splashLogo = document.querySelector('.splash-logo');
-        const mainContent = document.querySelector('.main-container');
-        
-        if (sessionStorage.getItem('splashShown') !== 'true') {
-            if (splashScreen) {
-                splashScreen.style.display = 'flex';
-                if (mainContent) mainContent.style.visibility = 'hidden';
+    // Splash Screen
+    const splashScreen = document.querySelector('.splash-screen');
+    const splashLogo = document.querySelector('.splash-logo');
+    const mainContent = document.querySelector('.main-container');
+    
+    if (sessionStorage.getItem('splashShown') !== 'true') {
+        if (splashScreen) {
+            splashScreen.style.display = 'flex';
+            if (mainContent) mainContent.style.visibility = 'hidden';
+            
+            setTimeout(() => {
+                splashScreen.classList.add('hidden');
                 
                 setTimeout(() => {
-                    splashScreen.classList.add('hidden');
+                    if (mainContent) mainContent.style.visibility = 'visible';
                     
                     setTimeout(() => {
-                        if (mainContent) mainContent.style.visibility = 'visible';
-                        
-                        setTimeout(() => {
-                            splashScreen.style.display = 'none';
-                            sessionStorage.setItem('splashShown', 'true');
-                        }, 800);
+                        splashScreen.style.display = 'none';
+                        sessionStorage.setItem('splashShown', 'true');
                     }, 800);
-                }, 1000);
+                }, 800);
+            }, 1000);
+        }
+    } else {
+        if (splashScreen) splashScreen.style.display = 'none';
+        if (mainContent) mainContent.style.visibility = 'visible';
+    }
+
+    // Check network status
+    if (!navigator.onLine) {
+        document.querySelector('.offline-message').style.display = 'flex';
+        document.querySelector('.main-container').style.display = 'none';
+    }
+    
+    window.addEventListener('online', function() {
+        document.querySelector('.offline-message').style.display = 'none';
+        document.querySelector('.main-container').style.display = 'block';
+    });
+    
+    window.addEventListener('offline', function() {
+        document.querySelector('.offline-message').style.display = 'flex';
+        document.querySelector('.main-container').style.display = 'none';
+    });
+
+    // Menu functionality
+    const desktopMenuButton = document.querySelector('.menu-button.desktop-only');
+    const desktopMenu = document.querySelector('.desktop-menu');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    function setupMenus() {
+        if (window.innerWidth <= 768) {
+            // Mobile view - hide desktop menu, show mobile menu toggle
+            if (desktopMenu) {
+                desktopMenu.style.display = 'none';
+                desktopMenu.classList.remove('show');
+            }
+            if (menuToggle) {
+                menuToggle.style.display = 'block';
+            }
+            if (desktopMenuButton) {
+                desktopMenuButton.style.display = 'none';
             }
         } else {
-            if (splashScreen) splashScreen.style.display = 'none';
-            if (mainContent) mainContent.style.visibility = 'visible';
+            // Desktop view - hide mobile menu, show desktop menu button
+            if (mobileMenu) {
+                mobileMenu.style.display = 'none';
+                mobileMenu.classList.remove('show');
+            }
+            if (menuToggle) {
+                menuToggle.style.display = 'none';
+                menuToggle.classList.remove('active');
+            }
+            if (desktopMenuButton) {
+                desktopMenuButton.style.display = 'flex';
+            }
+            if (desktopMenu) {
+                desktopMenu.style.display = 'none'; // Start hidden
+            }
+        }
+    }
+
+    // Desktop menu functionality
+    if (desktopMenuButton && desktopMenu) {
+        desktopMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (window.innerWidth > 768) {
+                desktopMenu.classList.toggle('show');
+            }
+        });
+        
+        // Close desktop menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (desktopMenu && desktopMenu.classList.contains('show') && 
+                !desktopMenu.contains(e.target) && 
+                !desktopMenuButton.contains(e.target)) {
+                desktopMenu.classList.remove('show');
+            }
+        });
+    }
+
+    // Mobile menu functionality
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('show');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('show');
+            });
+        });
+    }
+
+    // Scroll to top button and menu button visibility
+    const scrollToTopBtn = document.querySelector('.scroll-to-top');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            if (scrollToTopBtn) scrollToTopBtn.classList.add('show');
+            if (window.innerWidth > 768 && desktopMenuButton) {
+                desktopMenuButton.classList.add('show');
+            }
+        } else {
+            if (scrollToTopBtn) scrollToTopBtn.classList.remove('show');
+            if (window.innerWidth > 768 && desktopMenuButton) {
+                desktopMenuButton.classList.remove('show');
+            }
+        }
+    });
+    
+    if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Countdown Timer
+    function updateCountdown() {
+        const endDate = new Date('October 25, 2025 09:00:00').getTime();
+        const now = new Date().getTime();
+        const distance = endDate - now;
+
+        // Time calculations
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display results
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+        // If countdown is finished
+        if (distance < 0) {
+            clearInterval(countdownTimer);
+            document.querySelector('.cyber-countdown').innerHTML = '<div class="countdown-finished">SYMPOSIUM HAS STARTED!</div>';
+        }
+    }
+
+    // Update countdown every second
+    updateCountdown();
+    const countdownTimer = setInterval(updateCountdown, 1000);
+
+    // Navigation indicator
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navIndicator = document.querySelector('.nav-indicator');
+
+    function moveIndicator(el) {
+        if (navIndicator) {
+            navIndicator.style.width = `${el.offsetWidth}px`;
+            navIndicator.style.left = `${el.offsetLeft}px`;
+        }
+    }
+
+    // Set initial position
+    if (navLinks.length > 0 && navIndicator) {
+        moveIndicator(navLinks[0]);
+    }
+
+    // Move indicator on hover
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            moveIndicator(link);
+        });
+    });
+
+    // Reset indicator position when not hovering
+    const navContainer = document.querySelector('.nav-container');
+    if (navContainer && navIndicator) {
+        navContainer.addEventListener('mouseleave', () => {
+            const activeLink = document.querySelector('.nav-link.active') || navLinks[0];
+            moveIndicator(activeLink);
+        });
+    }
+
+    // Active link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (pageYOffset >= sectionTop - 300) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+                moveIndicator(link);
+            }
+        });
+    });
+
+    // Add animation to elements when they come into view
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.event-card, .coordinator-card, .contact-card');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementPosition < windowHeight - 100) {
+                element.classList.add('animate');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Run once on load
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+                
+                // Close menus if open
+                if (desktopMenu && desktopMenu.classList.contains('show')) {
+                    desktopMenu.classList.remove('show');
+                }
+                if (mobileMenu && mobileMenu.classList.contains('show')) {
+                    mobileMenu.classList.remove('show');
+                    if (menuToggle) menuToggle.classList.remove('active');
+                }
+            }
+        });
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        setupMenus();
+        
+        // Close desktop menu when switching to mobile
+        if (window.innerWidth <= 768 && desktopMenu) {
+            desktopMenu.classList.remove('show');
         }
     });
 
+    // Initial setup
+    setupMenus();
 
-        // Check network status
-        window.addEventListener('load', function() {
-            if (!navigator.onLine) {
-                document.querySelector('.offline-message').style.display = 'flex';
-                document.querySelector('.main-container').style.display = 'none';
-            }
-            
-            window.addEventListener('online', function() {
-                document.querySelector('.offline-message').style.display = 'none';
-                document.querySelector('.main-container').style.display = 'block';
-            });
-            
-            window.addEventListener('offline', function() {
-                document.querySelector('.offline-message').style.display = 'flex';
-                document.querySelector('.main-container').style.display = 'none';
-            });
-        });
+    // Event navigation
+    document.getElementById('eventone')?.addEventListener('click', function() {
+        window.location.href = 'event1.html';
+    });
 
-        // Update the menu toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Desktop menu toggle
-            const desktopMenuButton = document.querySelector('.menu-button.desktop-only');
-            const desktopMenu = document.querySelector('.desktop-menu');
-            
-            if (desktopMenuButton && desktopMenu) {
-                desktopMenuButton.addEventListener('click', (e) => {
-                    e.stopPropagation(); // Prevent event from bubbling up
-                    desktopMenu.classList.toggle('show');
-                });
-                
-                // Close menu when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (!desktopMenu.contains(e.target)) {
-                        desktopMenu.classList.remove('show');
-                    }
-                });
-            }
-            // Mobile menu toggle - only set up if on mobile
-            function setupMobileMenu() {
-                if (window.innerWidth <= 768) {
-                    const menuToggle = document.querySelector('.menu-toggle');
-                    const mobileMenu = document.querySelector('.mobile-menu');
-                    
-                    if (menuToggle && mobileMenu) {
-                        menuToggle.style.display = 'block';
-                        menuToggle.addEventListener('click', () => {
-                            menuToggle.classList.toggle('active');
-                            mobileMenu.classList.toggle('show');
-                        });
+    document.getElementById('eventtwo')?.addEventListener('click', function() {
+        window.location.href = 'event2.html';
+    });
 
-                        // Close mobile menu when clicking on a link
-                        document.querySelectorAll('.mobile-menu a').forEach(link => {
-                            link.addEventListener('click', () => {
-                                menuToggle.classList.remove('active');
-                                mobileMenu.classList.remove('show');
-                            });
-                        });
-                    }
-                } else {
-                    // On desktop, ensure mobile menu is hidden and toggle button is hidden
-                    const menuToggle = document.querySelector('.menu-toggle');
-                    const mobileMenu = document.querySelector('.mobile-menu');
-                    
-                    if (menuToggle) {
-                        menuToggle.style.display = 'none';
-                        menuToggle.classList.remove('active');
-                    }
-                    if (mobileMenu) {
-                        mobileMenu.classList.remove('show');
-                    }
-                }
-            }
+    document.getElementById('eventthree')?.addEventListener('click', function() {
+        window.location.href = 'event3.html';
+    });
 
-            // Initial setup
-            setupMobileMenu();
+    document.getElementById('eventfour')?.addEventListener('click', function() {
+        window.location.href = 'event4.html';
+    });
 
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                setupMobileMenu();
-            });
-            
-            // Scroll to top button and menu button
-            const scrollToTopBtn = document.querySelector('.scroll-to-top');
-            const menuButton = document.querySelector('.menu-button.desktop-only');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    scrollToTopBtn.classList.add('show');
-                    if (window.innerWidth > 768) {
-                        menuButton.classList.add('show');
-                    }
-                } else {
-                    scrollToTopBtn.classList.remove('show');
-                    if (window.innerWidth > 768) {
-                        menuButton.classList.remove('show');
-                    }
-                }
-            });
-            
-            scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
+    document.getElementById('eventfive')?.addEventListener('click', function() {
+        window.location.href = 'event5.html';
+    });
 
-            // Countdown Timer
-            function updateCountdown() {
-                const endDate = new Date('October 25, 2025 09:00:00').getTime();
-                const now = new Date().getTime();
-                const distance = endDate - now;
+    document.getElementById('eventsix')?.addEventListener('click', function() {
+        window.location.href = 'event6.html';
+    });
 
-                // Time calculations
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById('eventseven')?.addEventListener('click', function() {
+        window.location.href = 'event7.html';
+    });
 
-                // Display results
-                document.getElementById('days').textContent = days.toString().padStart(2, '0');
-                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-
-                // If countdown is finished
-                if (distance < 0) {
-                    clearInterval(countdownTimer);
-                    document.querySelector('.cyber-countdown').innerHTML = '<div class="countdown-finished">SYMPOSIUM HAS STARTED!</div>';
-                }
-            }
-
-            // Update countdown every second
-            updateCountdown();
-            const countdownTimer = setInterval(updateCountdown, 1000);
-
-            // Navigation indicator
-            const navLinks = document.querySelectorAll('.nav-link');
-            const navIndicator = document.querySelector('.nav-indicator');
-
-            function moveIndicator(el) {
-                navIndicator.style.width = `${el.offsetWidth}px`;
-                navIndicator.style.left = `${el.offsetLeft}px`;
-            }
-
-            // Set initial position
-            if (navLinks.length > 0) {
-                moveIndicator(navLinks[0]);
-            }
-
-            // Move indicator on hover
-            navLinks.forEach(link => {
-                link.addEventListener('mouseenter', () => {
-                    moveIndicator(link);
-                });
-            });
-
-            // Reset indicator position when not hovering
-            document.querySelector('.nav-container').addEventListener('mouseleave', () => {
-                const activeLink = document.querySelector('.nav-link.active') || navLinks[0];
-                moveIndicator(activeLink);
-            });
-
-            // Active link on scroll
-            const sections = document.querySelectorAll('section[id]');
-            
-            window.addEventListener('scroll', () => {
-                let current = '';
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    
-                    if (pageYOffset >= sectionTop - 300) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${current}`) {
-                        link.classList.add('active');
-                        moveIndicator(link);
-                    }
-                });
-            });
-
-            // Add animation to elements when they come into view
-            const animateOnScroll = function() {
-                const elements = document.querySelectorAll('.event-card, .coordinator-card, .contact-card');
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (elementPosition < windowHeight - 100) {
-                        element.classList.add('animate');
-                    }
-                });
-            };
-
-            window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll(); // Run once on load
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close desktop menu if open
-                        if (desktopMenu) {
-                            desktopMenu.classList.remove('show');
-                        }
-                    }
-                });
-            });
-        });
-
-        // Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').then(registration => {
-                    console.log('ServiceWorker registration successful');
-                }).catch(err => {
-                    console.log('ServiceWorker registration failed: ', err);
-                });
-            });
+    // Handle external links
+    document.querySelectorAll('a[href^="http"]').forEach(link => {
+        if (!link.getAttribute('target')) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
         }
-
-        // Event navigation
-        document.getElementById('eventone').addEventListener('click', function() {
-            window.location.href = 'event1.html';
+    });
+    
+    // Ensure mailto and tel links work
+    document.querySelectorAll('a[href^="mailto"], a[href^="tel"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.stopPropagation();
         });
+    });
+});
 
-        document.getElementById('eventtwo').addEventListener('click', function() {
-            window.location.href = 'event2.html';
+// Service Worker Registration
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('ServiceWorker registration successful');
+        }).catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
         });
-
-        document.getElementById('eventthree').addEventListener('click', function() {
-            window.location.href = 'event3.html';
-        });
-
-        document.getElementById('eventfour').addEventListener('click', function() {
-            window.location.href = 'event4.html';
-        });
-
-        document.getElementById('eventfive').addEventListener('click', function() {
-            window.location.href = 'event5.html';
-        });
-
-        document.getElementById('eventsix').addEventListener('click', function() {
-            window.location.href = 'event6.html';
-        });
-
-        document.getElementById('eventseven').addEventListener('click', function() {
-            window.location.href = 'event7.html';
-        });
+    });
+}
     </script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
