@@ -794,7 +794,7 @@ body {
     font-weight: 700;
     color: #00f5ff;
     margin-bottom: 0.3rem;
-    font-family: "Asimovian", sans-serif;
+    font-family: "Bungee", sans-serif;
 }
 
 .countdown-label {
@@ -882,18 +882,11 @@ body {
     margin-bottom: 4rem;
     position: relative;
     text-align: center;
+    text-decoration: overline #00f5ff 0.5px;
 }
 
 .title-number {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 4rem;
-    opacity: 0.1;
-    color: #00f5ff;
-    width: 1000px;
-    text-align: center;
+    display: none;
 }
 
 .event-cards {
