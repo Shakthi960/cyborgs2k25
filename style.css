@@ -13,15 +13,6 @@ body {
     position: relative;
 }
 
-.body1 {
-    position: relative;
-    width: 1700px;
-}
-
-.body2 {
-    position: absolute;
-}
-
 /* Running Tag List */
 .tag-list {
     width: 100%;
@@ -1040,7 +1031,7 @@ body {
 }
 
 .event-card:hover {
-    transform: ;
+    transform: skew(1deg,1deg);
     box-shadow: 0 15px 40px rgba(0, 245, 255, 0.3);
     border-color: rgba(0, 245, 255, 0.3);
 }
@@ -1355,7 +1346,7 @@ body {
 
 /* Contact Section */
 .contact-section {
-    margin: 5rem 0;
+    margin: 5rem 0 0px;
     position: relative;
 }
 
@@ -1375,13 +1366,13 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: stretch;
+    border-radius: 12px;
 }
 
 .contact-cards {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     gap: 1.5rem;
-    height: 550px;
 }
 
 .contact-card {
@@ -1396,29 +1387,22 @@ body {
     z-index: 5;
 }
 
-/* Ensure links are properly styled and clickable */
-.contact-card a {
-    color: #b0b0ff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    position: relative;
-    z-index: 10; /* Ensure links are above other elements */
-    pointer-events: auto; /* Ensure links are clickable */
-}
-
-.contact-card a:hover {
-    color: #00f5ff;
-    text-decoration: underline;
+.contact-cards img {
+    border-radius: 12px;
+    border: 1px solid #004a4d;
 }
 
 .map-container {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 0 30px rgba(0, 245, 255, 0.2);
-    border: 1px solid rgba(0, 245, 255, 0.3);
     height: 550px;
     z-index: 5;
+}
+
+.map-container iframe {
+    border-radius: 12px;
+    border: 2px solid #004a4d;
 }
 
 /* Add card-border element for contact cards */
@@ -1806,16 +1790,9 @@ a, button, .nav-link, .menu-toggle, .scroll-to-top, .menu-button {
         display: none;
     }
     
-    .college-logo-left img,
-    .college-logo-right img {
-        width: 40px;
-        height: 40px;
-        margin: 120px 0px 0px 0px;
-    }
-    
     .college-details h2 {
         font-size: 1.1rem !important;
-        margin-top: 50px;
+        margin-top: 10px;
     }
     
     .college-details p {

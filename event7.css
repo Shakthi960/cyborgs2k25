@@ -488,10 +488,20 @@ body {
     .event-branding h1 {
         font-size: 1.8rem;
     }
+
+    .poster-container {
+        width: 250px;
+        height: 250px;
+    }
     
     .poster {
         width: 250px;
-        height: 400px;
+        height: 250px;
+    }
+
+    .poster img {
+        width: 250px;
+        height: 250px;
     }
     
     .rules-container {
