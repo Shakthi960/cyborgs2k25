@@ -127,14 +127,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Register button interaction
-            document.querySelector('.register-btn').addEventListener('click', function() {
-                this.innerHTML = '<i class="fas fa-cog fa-spin"></i> PROCESSING...';
-                setTimeout(() => {
-                    alert('Registration would open soon!');
-                    this.innerHTML = 'REGISTER NOW';
-                }, 1500);
-            });
+           
 
             const container = document.getElementById('circle-background');
 
