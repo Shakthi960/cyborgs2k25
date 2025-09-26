@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instructions | CYBORGS 2K25</title>
+  <link rel="stylesheet" href="instruction.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Noto+Sans+Multani&display=swap" rel="stylesheet">
+  <link rel="icon" href="image/logo.png">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="event-header">
+    <div class="va-bg-2">
+      <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i></a>
+    </div>
+    <div class="nav-bg">
+      <div class="event-branding">
+        <h1>INSTRUCTIONS</h1>
+      </div>
+    </div>
+  </header>
+
+  <!-- Instructions Section -->
+  <section class="event-container">
+    <div class="instructions-grid">
+
+      <!-- General Rules -->
+      <div class="instruction-box">
+        <h2><i class="fas fa-id-card"></i> Registration</h2>
+        <ul>
+          <li>A valid college ID card is mandatory for registration and participation.</li>
+          <li>Registration fee: Rs. 100/- per participant.</li>
+          <li>Payment is not refundable.</li>
+          <li>All participants must register before the deadline (25.09.25, 8 PM).</li>
+          <li>On Spot registration will be available based on slot availability.</li>
+        </ul>
+      </div>
+
+      <!-- Team Rules -->
+      <div class="instruction-box">
+        <h2><i class="fas fa-users"></i> Team & Participation</h2>
+        <ul>
+          <li>Team size: 1-4 members (may vary according to events).</li>
+          <li>Each participant can register for only 2 events. Based on slot availability, additional events may be allowed.</li>
+          <li>Participants will be divided into batches (ex: Batch 1, Batch 2) with specific time slots.</li>
+        </ul>
+      </div>
+
+      <!-- Paper Presentation -->
+      <div class="instruction-box">
+        <h2><i class="fas fa-file-alt"></i> Paper Presentation</h2>
+        <ul>
+          <li>If registering as a group (max: 3 members), each member must register separately by uploading the same abstract.</li>
+          <li>The group will be considered as a team and approached for further details.</li>
+        </ul>
+      </div>
+
+      <!-- Judging & Certificates -->
+      <div class="instruction-box">
+        <h2><i class="fas fa-gavel"></i> Judgement & Certification</h2>
+        <ul>
+          <li>Judges’ decision will be final.</li>
+          <li>Certificates will be provided to all participants.</li>
+        </ul>
+      </div>
+
+      <!-- Facilities -->
+      <div class="instruction-box">
+        <h2><i class="fas fa-utensils"></i> Facilities</h2>
+        <ul>
+          <li>Lunch and a registration kit will be provided.</li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="instruction-box">
+        <h2><i class="fas fa-phone-alt"></i> Contact</h2>
+        <ul>
+          <li>For further details, contact Registration Coordinator:</li>
+          <li><strong>Hemanth G</strong> – 8122112158</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Back to Home -->
+    <div class="bottom-back-button">
+      <a href="index.html" class="back-button2"><i class="fas fa-home"></i> Back to Home</a>
+    </div>
+  </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+            // Splash Screen - Modified to always show on reload
+            const splashScreen = document.querySelector('.splash-screen');
+            const splashLogo = document.querySelector('.splash-logo');
+            const mainContent = document.querySelector('.main-container');
+            
+            // Always show splash screen on page load (removed sessionStorage check)
+            if (splashScreen) {
+                splashScreen.style.display = 'flex';
+                if (mainContent) mainContent.style.visibility = 'hidden';
+                
+                setTimeout(() => {
+                    splashScreen.classList.add('hidden');
+                    
+                    setTimeout(() => {
+                        if (mainContent) mainContent.style.visibility = 'visible';
+                        
+                        setTimeout(() => {
+                            splashScreen.style.display = 'none';
+                        }, 800);
+                    }, 800);
+                }, 1000);
+            }
+
+            // Check network status
+            if (!navigator.onLine) {
+                document.querySelector('.offline-message').style.display = 'flex';
+                document.querySelector('.main-container').style.display = 'none';
+            }
+            
+            window.addEventListener('online', function() {
+                document.querySelector('.offline-message').style.display = 'none';
+                document.querySelector('.main-container').style.display = 'block';
+            });
+            
+            window.addEventListener('offline', function() {
+                document.querySelector('.offline-message').style.display = 'flex';
+                document.querySelector('.main-container').style.display = 'none';
+            });
+
+            // Menu functionality
+            const desktopMenuButton = document.querySelector('.menu-button.desktop-only');
+            const desktopMenu = document.querySelector('.desktop-menu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            function setupMenus() {
+                if (window.innerWidth <= 768) {
+                    // Mobile view - hide desktop menu, show mobile menu toggle
+                    if (desktopMenu) {
+                        desktopMenu.style.display = 'none';
+                        desktopMenu.classList.remove('show');
+                    }
+                    if (menuToggle) {
+                        menuToggle.style.display = 'block';
+                    }
+                    if (desktopMenuButton) {
+                        desktopMenuButton.style.display = 'none';
+                    }
+                    if (mobileMenu) {
+                        mobileMenu.style.display = 'none';
+                    }
+                } else {
+                    // Desktop view - hide mobile menu, show desktop menu button
+                    if (mobileMenu) {
+                        mobileMenu.style.display = 'none';
+                        mobileMenu.classList.remove('show');
+                    }
+                    if (menuToggle) {
+                        menuToggle.style.display = 'none';
+                        menuToggle.classList.remove('active');
+                    }
+                    if (desktopMenuButton) {
+                        desktopMenuButton.style.display = 'flex';
+                    }
+                    if (desktopMenu) {
+                        desktopMenu.style.display = 'none'; // Start hidden
+                    }
+                }
+            }
+
+            // Desktop menu functionality
+            if (desktopMenuButton && desktopMenu) {
+                desktopMenuButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (window.innerWidth > 768) {
+                        desktopMenu.style.display = desktopMenu.style.display === 'flex' ? 'none' : 'flex';
+                        desktopMenu.classList.toggle('show');
+                    }
+                });
+                
+                // Close desktop menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (desktopMenu && desktopMenu.classList.contains('show') && 
+                        !desktopMenu.contains(e.target) && 
+                        !desktopMenuButton.contains(e.target)) {
+                        desktopMenu.style.display = 'none';
+                        desktopMenu.classList.remove('show');
+                    }
+                });
+            }
+
+            // Mobile menu functionality
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+                    mobileMenu.classList.toggle('show');
+                });
+
+                // Close mobile menu when clicking on a link
+                document.querySelectorAll('.mobile-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        mobileMenu.style.display = 'none';
+                        mobileMenu.classList.remove('show');
+                    });
+                });
+            }
+
+            // Scroll to top button and menu button visibility
+            const scrollToTopBtn = document.querySelector('.scroll-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    if (scrollToTopBtn) scrollToTopBtn.classList.add('show');
+                    if (window.innerWidth > 768 && desktopMenuButton) {
+                        desktopMenuButton.classList.add('show');
+                    }
+                } else {
+                    if (scrollToTopBtn) scrollToTopBtn.classList.remove('show');
+                    if (window.innerWidth > 768 && desktopMenuButton) {
+                        desktopMenuButton.classList.remove('show');
+                    }
+                }
+            });
+            
+            if (scrollToTopBtn) {
+                scrollToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+</script>
+</body>
+</html>
