@@ -46,7 +46,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
     font-family: 'Orbitron', sans-serif;
     font-weight: 500;
-    background-color: #0a0a14b7;
+    background-color: #0a0a14;
 }
 
 .tag span {
@@ -410,7 +410,7 @@ body {
 .college-info {
     margin: 0;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
     transition: transform 0.4s ease-in-out;
     background-color: #0a0a1484;
     border-radius: 12px;
@@ -463,10 +463,11 @@ body {
 }
 
 .department-name {
-    margin-top: 1rem;
-    font-size: 2rem;
-    color: #b0b0ff;
-    font-size: 1.1rem;
+    color: #00f5ff;
+    font-size: 1.5rem !important;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+    font-weight: 500;
 }
 
 .subtitle-two {
@@ -648,6 +649,7 @@ body {
 .presents {
     font-size: 1rem;
     font-weight: normal;
+    color: #b0b0ff;
 }
 
 /* Neon Navigation */
