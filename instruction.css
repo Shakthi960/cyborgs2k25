@@ -163,6 +163,6 @@ body {
 @media (max-width: 768px) {
   .event-branding h1 {
     font-size: 1.6rem;
-    margin-left: 0;
+    margin-left: 50px;
   }
 }
