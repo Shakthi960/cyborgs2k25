@@ -132,6 +132,10 @@ body {
   box-shadow: 0 0 5px #00f5ff;
 }
 
+#reach {
+  margin-top: 30px;
+}
+
 /* Back to Home */
 .bottom-back-button {
   text-align: center;
