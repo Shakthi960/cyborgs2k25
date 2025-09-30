@@ -30,7 +30,7 @@ body {
     width: fit-content;
     display: flex;
     gap: 2rem;
-    animation: loop 20s linear infinite;
+    animation: loop 24s linear infinite;
 }
 
 .tag {
@@ -108,7 +108,7 @@ body {
     
     .inner {
         gap: 1rem;
-        animation: loop 15s linear infinite;
+        animation: loop 50s linear infinite;
     }
 
     .fade {
