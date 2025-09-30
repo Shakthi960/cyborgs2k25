@@ -2340,3 +2340,51 @@ body {
         font-size: 1rem; 
     }
 }
+
+/* Animation */
+.hero-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.hero-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation */
+.event-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.event-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation */
+.coordinator-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.coordinator-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation */
+.contact-container {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.contact-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
