@@ -379,7 +379,6 @@ body {
 
 /* College Information */
 .college-info {
-    margin-top: 100px;
     text-align: center;
     padding-top: 10px;
     transition: transform 0.4s ease-in-out;
@@ -1632,6 +1631,7 @@ body {
         padding: 0.5rem 1rem;
         display: flex;
         border-top: 1px solid #004a4d;
+        border-bottom: 1px solid #004a4d;
     }
     
     .scroll-navbar.show {
@@ -1733,6 +1733,10 @@ body {
 
     .college-logo-right {
         display: none;
+    }
+
+    .college-details {
+        margin-top: 90px;
     }
     
     .college-details h2 {
