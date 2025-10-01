@@ -13,115 +13,86 @@ body {
     position: relative;
 }
 
-/* Running Tag List */
-.tag-list {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    padding: 10px 0;
-    background-color: white;
-    border-bottom: 1px solid rgba(0, 245, 255, 0.3);
-    z-index: 9999;
-    animation: bgChange 0.5s ease-in-out infinite alternate;
+/* ============ Banner Container ============ */
+.running-banner {
+  width: 100%;
+  overflow: hidden;
+  background-color: #0a0a14;
+  background-image: radial-gradient(circle at 50% 50%, rgba(0, 245, 255, 0.1) 0%, transparent 70%);
+  border-top: 2px solid #00f5ff;
+  border-bottom: 2px solid #00f5ff;
+  position: relative;
+  padding: 16px 0;
+  box-shadow: inset 0 0 20px rgba(0, 245, 255, 0.2);
 }
 
-.inner {
-    width: fit-content;
-    display: flex;
-    gap: 2rem;
-    animation: loop 24s linear infinite;
+/* ============ Track ============ */
+.banner-track {
+  display: flex;
+  gap: 6rem;
+  width: max-content;
+  animation: scrollLoop 6s linear infinite;   /* ⏩ faster for desktop */
+  will-change: transform;
 }
 
-.tag {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #b0b0ff;
-    font-size: 0.9rem;    
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    white-space: nowrap;
-    border: 1px solid rgba(0, 245, 255, 0.3);
-    box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 500;
-    background-color: #0a0a14;
+/* ============ Text Items ============ */
+.banner-item {
+  font-family: "Cinzel Decorative", "Georgia", serif;
+  font-size: 1rem;
+  font-weight: bold;
+  white-space: nowrap;
+  color: #00f5ff;
+  letter-spacing: 1px;
 }
 
-.tag span {
-    font-size: 1.5rem;
-    color: #00f5ff;
-    text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+/* Highlight for OPEN NOW */
+.banner-item.register {
+  color: #ffd700;
+  background: rgba(0, 245, 255, 0.05);
+  padding: 4px 14px;
+  border: 2px solid #ffd700;
+  border-radius: 40px;
+  box-shadow: 0 0 14px #ffd700, inset 0 0 6px rgba(255, 215, 0, 0.3);
+  animation: glowPulse 1.5s ease-in-out infinite alternate;
 }
 
-.fade {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 150px; /* Increased for better fade effect */
-    pointer-events: none;
-    z-index: 2;
+/* ============ Animations ============ */
+@keyframes scrollLoop {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.fade:first-child {
-    left: 0;
-    background: linear-gradient(to right, #0a0a14 0%, transparent 100%);
+@keyframes glowPulse {
+  0%   { box-shadow: 0 0 10px #ffd700, inset 0 0 6px rgba(255,215,0,0.4); }
+  100% { box-shadow: 0 0 20px #fff480, inset 0 0 8px rgba(255,255,255,0.5); }
 }
 
-.fade:last-child {
-    right: 0;
-    background: linear-gradient(to left, #0a0a14 0%, transparent 100%);
+@keyframes gentleWave {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
 }
 
-@keyframes loop {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-@keyframes bgChange {
-    0% {
-        background: linear-gradient(45deg, #0a0a14, #004a4d, #0a0a14, #004a4d, #0a0a14, #004a4d, #0a0a14, #004a4d, #0a0a14, #004a4d);
-    }
-    100% {
-        background: linear-gradient(45deg, #004a4d, #0a0a14, #004a4d, #0a0a14, #004a4d, #0a0a14, #004a4d, #0a0a14, #004a4d, #0a0a14);
-    }
-}
-
-/* Mobile adjustments */
+/* ============ Mobile Optimization ============ */
 @media (max-width: 768px) {
-    .tag-list {
-        padding: 8px 0;
-        order: 2; /* Ensure it comes after navbar on mobile */
-        margin-top: 60px; /* Push below the fixed navbar */
-        z-index: 100;
-    }
-    
-    .tag {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
-    }
-    
-    .inner {
-        gap: 1rem;
-        animation: loop 50s linear infinite;
-    }
+  .banner-track {
+    animation: scrollLoop 12s linear infinite;
+    gap: 3rem;
+  }
+  .banner-item {
+    font-size: 1rem;
+  }
 
-    .fade {
-        width: 60px; /* Smaller fade on mobile */
-    }
+  .running-banner {
+    border: none;
+    padding-top: 10px;
+    position: fixed;
+    top: 0; /* ✅ Add this */
+    left: 0; /* ✅ Add this */
+    z-index: 9999; /* ✅ Higher than scroll navbar */
+    width: 100%; /* ✅ Ensure full width */
+  }
 }
 
-/* Desktop fade enhancement */
-@media (min-width: 769px) {
-    .fade {
-        width: 200px; /* Wider fade on desktop */
-    }
-}
 
 /* Splash Screen */
 .splash-screen {
@@ -244,7 +215,7 @@ body {
     display: flex;
     flex-direction: column;
     transition: top 0.4s ease-in-out;
-    z-index: 1000;
+    z-index: 10000;
     backdrop-filter: blur(10px);
     justify-content: center;
 }
@@ -1657,9 +1628,10 @@ body {
     }
 
     .scroll-navbar {
-        top: 0;
+        top: 50px;
         padding: 0.5rem 1rem;
         display: flex;
+        border-top: 1px solid #004a4d;
     }
     
     .scroll-navbar.show {
