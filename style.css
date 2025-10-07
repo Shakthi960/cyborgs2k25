@@ -146,6 +146,10 @@ body {
     }
 }
 
+.typewriter-text a {
+    color: #00f5ff;
+    text-decoration: none;
+}
 
 /* Mobile view - keep the pulse animation */
 @media (max-width: 768px) {
