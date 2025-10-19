@@ -219,6 +219,18 @@ body {
     transition: color 0.3s ease;
 }
 
+.rules-content ol strong {
+    margin-bottom: 1rem;
+    font-family: 'Noto Sans Multani', sans-serif;
+    color: #c0c0ff;
+    line-height: 1.6;
+    padding-left: 0rem;
+    padding-bottom: 30px;
+    position: relative;
+    list-style: none;
+    transition: color 0.3s ease;
+}
+
 .rules-content li:before {
     content: '';
     position: absolute;
