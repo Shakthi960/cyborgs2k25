@@ -41,6 +41,16 @@
     <div class="splash-screen">
         <img src="logos/logo.png" alt="CYBORGS Logo" class="splash-logo">
     </div>
+
+    <!-- Add this popup HTML after the splash screen -->
+    <div class="poster-popup">
+        <div class="poster-container">
+            <button class="close-poster">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="posters/popup.jpg" alt="CYBORGS 2K25 Poster" class="poster-image">
+        </div>
+    </div>
         
     <!-- Mobile Scroll Navbar -->
     <header class="scroll-navbar">
@@ -968,6 +978,51 @@
         // Trigger once on page load
         revealOnScroll();
 
+        // Add this JavaScript to handle the popup
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const posterPopup = document.querySelector('.poster-popup');
+            const closePosterBtn = document.querySelector('.close-poster');
+            let posterTimer;
+            
+            // Function to show the poster popup
+            function showPosterPopup() {
+                posterPopup.classList.add('show');
+                
+                // Auto-hide after 3 seconds
+                posterTimer = setTimeout(() => {
+                    hidePosterPopup();
+                }, 6000);
+            }
+            
+            // Function to hide the poster popup
+            function hidePosterPopup() {
+                posterPopup.classList.remove('show');
+                clearTimeout(posterTimer);
+            }
+            
+            // Show the poster after the splash screen
+            setTimeout(() => {
+                showPosterPopup();
+            }, 1800); // Show after splash screen animation completes
+            
+            // Close button event
+            closePosterBtn.addEventListener('click', hidePosterPopup);
+            
+            // Close on background click (optional)
+            posterPopup.addEventListener('click', function(e) {
+                if (e.target === posterPopup) {
+                    hidePosterPopup();
+                }
+            });
+            
+            // Escape key to close
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && posterPopup.classList.contains('show')) {
+                    hidePosterPopup();
+                }
+            });
+        });
     </script>
 </body>
 </html>
